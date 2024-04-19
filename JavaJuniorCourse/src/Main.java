@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //exercise3();
-        exercise4();
+        //exercise4();
+        exercise5("ayslu 1104");
     }
 
     public static void exercise3() {
@@ -100,5 +101,55 @@ public class Main {
         }
         scanner.close();
 
+    }
+
+    static void exercise5(String str) {
+        String[] words = str.split(" ");
+        char[] nums = words[1].toCharArray();
+        int[] numnbers = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            numnbers[i] = convert(nums[i]);
+        }
+
+        System.out.println("Здравствуйте, " + words[0] + "! Сумма цифр в числе = " + convert(summ(numnbers)));
+    }
+
+    static int summ(int[] nums) {
+        int result = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            result += nums[i];
+        }
+        return result;
+    }
+
+    private static int convert(char aChar) {
+        switch (aChar) {
+            case '1': return 1;
+            case '2': return 2;
+            case '3': return 3;
+            case '4': return 4;
+            case '5': return 5;
+            case '6': return 6;
+            case '7': return 7;
+            case '8': return 8;
+            case '9': return 9;
+            default: return 0;
+        }
+    }
+    private static String convert(int n) {
+        switch (n) {
+            case 1: return "один";
+            case 2: return "два";
+            case 3: return "три";
+            case 4: return "четыре";
+            case 5: return "пять";
+            case 6: return "шесть";
+            case 7: return "семь";
+            case 8: return "восемь";
+            case 9: return "девять";
+            default: return "ноль";
+        }
     }
 }
