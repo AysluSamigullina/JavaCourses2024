@@ -4,7 +4,8 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        exercise3();
+        //exercise3();
+        exercise4();
     }
 
     public static void exercise3() {
@@ -45,4 +46,59 @@ public class Main {
                 System.out.print(array[j]+ " ");
             }
         }
+
+    public static void exercise4() {
+        int[][] array = new int[4][3];
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = scanner.nextInt();
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            int lineSum = 0;
+            for (int j = 0; j < array[i].length; j++) {
+                lineSum += array[i][j];
+            }
+            System.out.println("Line " + i + ": " + lineSum);
+        }
+
+        for (int i = 0; i < array[0].length; i++) {            //вывести сумму элементов столбцов
+            int colSum = 0;
+
+            for (int j = 0; j < array.length; j++) {
+                colSum += array[j][i];
+            }
+            System.out.println("Column " + i + ": " + colSum);
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j]%2 == 0) {
+                    array[i][j] = 0;
+                } else array[i][j] = 1;
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            int sumLine = 0;
+            for (int j = 0; j < array[i].length; j++) {
+                sumLine += array[i][j];
+            }
+            int average = sumLine/array[0].length;
+            System.out.printf("Average of line %d : %d \n", i, average);
+        }
+        scanner.close();
+
+    }
 }
